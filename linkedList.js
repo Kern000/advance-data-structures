@@ -25,6 +25,7 @@ class SinglyLinkedList {
 
         if (this.head === null){
             this.head = newNode;
+            console.log("Pushed node as head");
             return;
         } else {
             let currentNode = this.head;
@@ -32,7 +33,8 @@ class SinglyLinkedList {
                 currentNode = currentNode.getNextNode();
                 // we will cycle till the end, not very efficient
             }
-            currentNode.setNext(newNode);
+            currentNode.setNextNode(newNode);
+            console.log("pushed new node");
         }
     }
 
@@ -96,7 +98,7 @@ class SinglyLinkedList {
                 return;
             }
             else if (currentNode.getNextNode()){
-                currentNode.setNextNode() = null;
+                currentNode.setNextNode(null);
             } 
             else {
                 throw new Error("Index out of range");
@@ -116,7 +118,11 @@ class SinglyLinkedList {
         let currentNode = this.head;
         while (currentNode != null){
             console.log("node value => ", currentNode.getNodeValue());
-            console.log("next node value => ", currentNode.getNextNode().getNodeValue());
+            if (currentNode.getNextNode()){
+                console.log("next node value => ", currentNode.getNextNode().getNodeValue());
+            } else {
+                console.log("next node value => null");
+            }
             currentNode = currentNode.getNextNode();
         }
     }
@@ -152,6 +158,7 @@ class DoublyLinkedList {
     push(data){
         if (this.head === null){
             this.head = new Node(data);
+            console.log("pushed as head");
         } else {
             let currentNode = this.head;
             while (currentNode.getNextNode() !== null){
@@ -159,6 +166,7 @@ class DoublyLinkedList {
             }
             currentNode.setNextNode(new Node(data));
             currentNode.getNextNode().setPreviousNode(currentNode);
+            console.log("pushed new node");
         }
     }
 
@@ -194,7 +202,7 @@ class DoublyLinkedList {
                 }
                 currentNode = currentNode.getNextNode(); // now at index - 1
             }
-            nodeAfterInsertion = currentNode.getNextNode();
+            let nodeAfterInsertion = currentNode.getNextNode();
             currentNode.setNextNode(new Node(value));
             currentNode.getNextNode().setPreviousNode(currentNode);
             currentNode.getNextNode().setNextNode(nodeAfterInsertion);
@@ -209,13 +217,13 @@ class DoublyLinkedList {
         else if (index == 0 && this.head === null){
             throw new Error ("No node to delete, doubly link list is empty");
         }
-        else if (index == 0 && this.head !== null){
+        else if (index == 0 && this.head !== null && this.head.getNextNode() === null){
             let currentNode = this.head;
             this.head = currentNode.setNextNode(currentNode.getNextNode());
             currentNode.getNextNode().setPreviousNode(null);
             return;
         } else {
-            currentNode = this.head;
+            let currentNode = this.head;
             for (let i=0; i<index-1; i++){
                 if (currentNode === null){
                     throw new Error("Index out of range");
@@ -238,10 +246,24 @@ class DoublyLinkedList {
 
     printLinkList(){
         let currentNode = this.head;
-        while (currentNode != null){
+        while (currentNode !== null){
+
+            if (currentNode.getPreviousNode() === null){
+                console.log("previous node value => null");
+            } 
+            else {
+                console.log("previous node value => ", currentNode.getPreviousNode().getNodeValue());
+            }
+
             console.log("node value => ", currentNode.getNodeValue());
-            console.log("next node value => ", currentNode.getNextNode().getNodeValue());
-            console.log("previous node value => ", currentNode.getPreviousNode().getNodeValue());
+
+            if (currentNode.getNextNode() !== null){
+                console.log("next node value => ", currentNode.getNextNode().getNodeValue());
+            }
+            else {
+                console.log("next node value => null");
+            }
+
             currentNode = currentNode.getNextNode();
         }
     }
@@ -266,5 +288,32 @@ class DoublyLinkedList {
         return length;
     }
 }
+
+// Simple Testing of SinglyLinkedList w/o test cases // uncomment to test
+// let hello1 = new SinglyLinkedList;
+// hello1.push(1);
+// hello1.push(2);
+// hello1.insertAtIndex(1,5);
+// hello1.insertAtIndex(2,6);
+// hello1.shift();
+// hello1.deleteAtIndex(2);
+// hello1.printLinkList();
+// hello1.length();
+// console.log(hello1.findByIndex(1));
+
+// Simple Testing of DoublyLinkedList w/o test cases //
+let hello1 = new DoublyLinkedList;
+hello1.push(1);
+hello1.push(2);
+hello1.push(3);
+hello1.insertAtIndex(2,4);
+hello1.insertAtIndex(4,5);
+hello1.shift();
+hello1.printLinkList();
+hello1.length();
+hello1.deleteAtIndex(0);
+hello1.length();
+hello1.printLinkList();
+
 
 module.exports = {SinglyLinkedList, DoublyLinkedList};
