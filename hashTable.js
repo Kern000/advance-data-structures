@@ -68,9 +68,30 @@ const stepByStepIterator = map1.entries();
 console.log(stepByStepIterator.next().value);
 console.log(stepByStepIterator.next().value);
 
+console.log(map1.has("John"));
 
+const stepByStepIteratorKeysOnly = map1.keys();
+console.log(stepByStepIteratorKeysOnly);
+console.log(stepByStepIteratorKeysOnly.next().value);
+console.log(stepByStepIteratorKeysOnly.next().value);
 
+const stepByStepIteratorValuesOnly = map1.values();
+console.log(stepByStepIteratorValuesOnly);
+console.log(stepByStepIteratorValuesOnly.next().value);
+console.log(stepByStepIteratorValuesOnly.next().value);
 
+// Map has forEach() as well - loop for each key
+// map parameter is optional like forEach() in array
+
+function printMapEntries(value, key, map) {
+    console.log(`${key} => ${value}`);
+}
+
+new Map([
+    ["John", 100],
+    ["Peter", {}],
+    ["Jackson", undefined],
+]).forEach(printMapEntries);
 
 
 

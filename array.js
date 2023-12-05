@@ -157,7 +157,14 @@ const q4 = ["Oct", "Nov", "May"];
 const year = [...q1, ...q2, ...q3, ...q4];
 console.log(year);
 
+// for each has quite specific parameters
+function arrayValueMultiplier(currentValue, index, array){
+    array[index] = currentValue * 2;
+}
 
+numberArray1 = [1,2,3,4,5,6,10];
+numberArray1.forEach(arrayValueMultiplier);
+console.log(numberArray1);
 
 
 
