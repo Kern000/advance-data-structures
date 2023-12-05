@@ -93,6 +93,13 @@ new Map([
     ["Jackson", undefined],
 ]).forEach(printMapEntries);
 
+function multiplyMapValues(value, key, map){
+    map[key] = value * 2;
+}
+
+let foodPrice = new Map([["mcdonalds", 50], ["kfc", 10], ["popeyes", 55]]);
+foodPrice.forEach(multiplyMapValues);
+console.log(foodPrice);
 
 
 
