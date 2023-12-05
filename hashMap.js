@@ -173,6 +173,7 @@ class HashMap {
 // hashMap1.deleteItem("lol");
 // hashMap1.deleteItem("woofy");
 // hashMap1.getItem("woofy");
+// hashMap1.increaseSizeTo(15);
 // hashMap1.printHashMap();
 
 module.exports=HashMap;
