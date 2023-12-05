@@ -301,19 +301,19 @@ class DoublyLinkedList {
 // hello1.length();
 // console.log(hello1.findByIndex(1));
 
-// Simple Testing of DoublyLinkedList w/o test cases //
-let hello1 = new DoublyLinkedList;
-hello1.push(1);
-hello1.push(2);
-hello1.push(3);
-hello1.insertAtIndex(2,4);
-hello1.insertAtIndex(4,5);
-hello1.shift();
-hello1.printLinkList();
-hello1.length();
-hello1.deleteAtIndex(0);
-hello1.length();
-hello1.printLinkList();
+// // Simple Testing of DoublyLinkedList w/o test cases //
+// let hello1 = new DoublyLinkedList;
+// hello1.push(1);
+// hello1.push(2);
+// hello1.push(3);
+// hello1.insertAtIndex(2,4);
+// hello1.insertAtIndex(4,5);
+// hello1.shift();
+// hello1.printLinkList();
+// hello1.length();
+// hello1.deleteAtIndex(0);
+// hello1.length();
+// hello1.printLinkList();
 
 
 module.exports = {SinglyLinkedList, DoublyLinkedList};
