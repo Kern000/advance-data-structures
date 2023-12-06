@@ -75,5 +75,4 @@ function quickSort(array, low, high){
 // let lastIndexPos = array1.length - 1;
 // quickSort(array1, 0, lastIndexPos);
 
-
 module.exports= quickSort;
