@@ -70,9 +70,10 @@ function quickSort(array, low, high){
     console.log("sorting array", array);
 }
 
-let array1 = [4,8,9,10,2,44,16, 100, 99, 3, 4]
-let lastIndexPos = array1.length - 1;
+// quicksort testing
+// let array1 = [4,8,9,10,2,44,16, 100, 99, 3, 4]
+// let lastIndexPos = array1.length - 1;
+// quickSort(array1, 0, lastIndexPos);
 
-quickSort(array1, 0, lastIndexPos);
 
-
+module.exports= quickSort;
