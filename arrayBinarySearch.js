@@ -24,17 +24,8 @@ function binarySearch(array, valueBeingSearch){
             console.log(`First occurence of Searched value is at index ${middleIndex}, that index will be returned`);
             let foundIndex = middleIndex;
 
-            if (sortedArray[foundIndex+1]== valueBeingSearch){
-                while (sortedArray[foundIndex+1] == valueBeingSearch){
-                    console.log(`Duplicate occurence found at index ${foundIndex+1}`)
-                    foundIndex++
-                }
-            } else if (sortedArray[foundIndex-1]== valueBeingSearch){
-                while (sortedArray[foundIndex-1] == valueBeingSearch){
-                    console.log(`Duplicate occurence found at index ${foundIndex-1}`)
-                    foundIndex--
-                }
-            }
+            handlingDuplicates(sortedArray, foundIndex, valueBeingSearch);
+
             return middleIndex;
         }
 
@@ -49,10 +40,31 @@ function binarySearch(array, valueBeingSearch){
     return false;
 }
 
+function handlingDuplicates(sortedArray, foundIndex, valueBeingSearch){
 
+    if (sortedArray[foundIndex+1] == valueBeingSearch && sortedArray[foundIndex-1] == valueBeingSearch){
+        while (sortedArray[foundIndex-1] == valueBeingSearch){
+            foundIndex--;
+        }
+        while (sortedArray[foundIndex+1] == valueBeingSearch){
+            console.log(`Full occurrences found at index ${foundIndex+1}`)
+            foundIndex++
+        }
+    } else if (sortedArray[foundIndex+1]== valueBeingSearch){
+        while (sortedArray[foundIndex+1] == valueBeingSearch){
+            console.log(`Duplicate occurence found at index ${foundIndex+1}`)
+            foundIndex++
+        }
+    } else if (sortedArray[foundIndex-1]== valueBeingSearch){
+        while (sortedArray[foundIndex-1] == valueBeingSearch){
+            console.log(`Duplicate occurence found at index ${foundIndex-1}`)
+            foundIndex--
+        }
+    }
+}
 
 // test
-// let array1 =new Array(2, 4, 18, 2, 17, 18, 18, 18, 19);
-// let searchResult = binarySearch(array1, 18);
+let array1 =new Array(2, 4, 18, 2, 17, 16, 16, 16, 16, 19, 16, 16);
+let searchResult = binarySearch(array1, 16);
 
 module.exports = binarySearch;
