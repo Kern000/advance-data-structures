@@ -6,16 +6,18 @@ class Queue {
     }
 
     enqueue(data){
+        // console.log("data being added via enqueue:", data);
         return this.items.push(data);
     }
 
     dequeue(){
+        // console.log("items being returned in deque");
         return this.items.shift();
     }
 
     size(){
         let size = this.items.length();
-        console.log(`Size of queue is ${size}`);
+        // console.log(`Size of queue is ${size}`);
         return size;
     }
 
