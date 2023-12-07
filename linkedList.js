@@ -25,7 +25,7 @@ class SinglyLinkedList {
 
         if (this.head === null){
             this.head = newNode;
-            console.log("Pushed node as head");
+            // console.log("Pushed node as head");
             return;
         } else {
             let currentNode = this.head;
@@ -34,7 +34,7 @@ class SinglyLinkedList {
                 // we will cycle till the end, not very efficient
             }
             currentNode.setNextNode(newNode);
-            console.log("pushed new node");
+            // console.log("pushed new node");
         }
     }
 
@@ -42,8 +42,10 @@ class SinglyLinkedList {
         if(this.head === null){
             throw new Error("no first node to delete");
         } else {
+            // console.log("item being shifted");
+            let itemBeingShifted = this.head.getNodeValue();
             this.head = this.head.getNextNode();
-            return;
+            return itemBeingShifted;
         }
     }
 
@@ -144,7 +146,7 @@ class SinglyLinkedList {
             currentNode = currentNode.getNextNode();
             length ++            
         }
-        console.log("length of singly linked list => ", length);
+        // console.log("length of singly linked list => ", length);
         return length;
     }
 }
