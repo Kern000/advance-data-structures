@@ -86,10 +86,17 @@ class Graph {
         }
     }
 
+    get(vertex1){
+
+        let result = this.adjList.get(vertex1);
+        console.log(`traversing: ${vertex1}, results: ${result}`);        
+        return result;
+    }
+
     addUndirectedEdgeToAdjList(vertex1, vertex2){
 
         if(!Validator.stringValidator(vertex1, vertex2)){
-            return;   
+            return;
         };
 
         let vertex1Adj = this.adjList.get(vertex1)
@@ -219,4 +226,4 @@ class Validator {
 // graph1.printAdjMatrix();
 // //end of test//
 
-module.exports = { Graph, Validator };
+module.exports = Graph;
